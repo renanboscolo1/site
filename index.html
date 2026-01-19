@@ -1,227 +1,360 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Elluz Consultoria Tributária</title>
-  <link rel="stylesheet" href="style.css" />
+
+  <!-- Fonte -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      color: #1f2933;
+      background: #ffffff;
+      line-height: 1.6;
+    }
+
+    .container {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+
+    .container.narrow {
+      max-width: 760px;
+    }
+
+    /* NAVBAR */
+    .navbar {
+      background: #ffffff;
+      border-bottom: 1px solid #e2e8f0;
+      position: sticky;
+      top: 0;
+      z-index: 10;
+    }
+
+    .navbar .container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 15px 0;
+    }
+
+    .logo {
+      font-size: 1.6rem;
+      font-weight: 700;
+      color: #0f172a;
+    }
+
+    nav a {
+      margin-left: 20px;
+      text-decoration: none;
+      color: #1f2933;
+      font-weight: 500;
+    }
+
+    .btn-nav {
+      background: #22c55e;
+      color: #0f172a;
+      padding: 8px 16px;
+      border-radius: 6px;
+    }
+
+    /* HERO */
+    .hero {
+      background: linear-gradient(135deg, #0f172a, #020617);
+      color: #ffffff;
+      padding: 100px 0;
+      text-align: center;
+    }
+
+    .hero h1 {
+      font-size: 2.6rem;
+      margin-bottom: 20px;
+    }
+
+    .hero p {
+      opacity: 0.9;
+      margin-bottom: 30px;
+    }
+
+    .btn-primary {
+      background: #22c55e;
+      color: #0f172a;
+      padding: 14px 30px;
+      border-radius: 6px;
+      font-weight: 600;
+      text-decoration: none;
+      border: none;
+      cursor: pointer;
+    }
+
+    /* SECTIONS */
+    .section {
+      padding: 80px 0;
+    }
+
+    .bg-light {
+      background: #f8fafc;
+    }
+
+    h2 {
+      font-size: 2rem;
+      margin-bottom: 25px;
+    }
+
+    h3 {
+      margin-bottom: 15px;
+    }
+
+    /* GRIDS */
+    .grid-2 {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 30px;
+    }
+
+    .grid-4 {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 30px;
+    }
+
+    /* CARDS */
+    .card {
+      background: #ffffff;
+      padding: 30px;
+      border-radius: 10px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.06);
+    }
+
+    .feature h4 {
+      margin-bottom: 8px;
+      font-weight: 600;
+    }
+
+    /* QUEM SOMOS */
+    .intro {
+      max-width: 700px;
+      margin-bottom: 50px;
+      color: #475569;
+    }
+
+    .team-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 60px;
+    }
+
+    .team-card {
+      text-align: center;
+    }
+
+    .team-card img {
+      width: 220px;
+      border-radius: 16px;
+      margin-bottom: 20px;
+    }
+
+    .team-card h3 {
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: #0f172a;
+      margin-bottom: 15px;
+    }
+
+    .team-card p {
+      font-size: 0.95rem;
+      color: #334155;
+    }
+
+    /* FORM */
+    .form-contato input,
+    .form-contato textarea {
+      width: 100%;
+      padding: 12px;
+      border: 1px solid #cbd5e1;
+      border-radius: 6px;
+      margin-bottom: 15px;
+      font-family: inherit;
+    }
+
+    .form-contato button {
+      width: 100%;
+    }
+
+    /* FOOTER */
+    .footer {
+      text-align: center;
+      padding: 30px;
+      font-size: 0.9rem;
+      color: #64748b;
+      border-top: 1px solid #e2e8f0;
+    }
+
+    /* RESPONSIVO */
+    @media (max-width: 768px) {
+      .hero h1 {
+        font-size: 2.1rem;
+      }
+
+      h2 {
+        font-size: 1.6rem;
+      }
+    }
+  </style>
 </head>
 <body>
 
-<header class="hero">
+<header class="navbar">
   <div class="container">
-    <h1>Descomplicamos a tributação para quem não pode errar.</h1>
-    <p class="subtitle">
-      Transformamos temas tributários complexos em explicações claras, práticas e de aplicação imediata —
-      para gestores que precisam tomar decisões seguras.
-    </p>
-
-    <ul class="hero-points">
-      <li>Sem juridiquês</li>
-      <li>Sem explicações genéricas</li>
-      <li>Sem decisões no escuro</li>
-    </ul>
-
-    <a href="#contato" class="btn-primary">Agendar uma conversa estratégica</a>
+    <span class="logo">Elluz</span>
+    <nav>
+      <a href="#solucoes">Soluções</a>
+      <a href="#beneficios">Benefícios</a>
+      <a href="#time">Quem somos</a>
+      <a href="#contato" class="btn-nav">Contato</a>
+    </nav>
   </div>
 </header>
 
+<section class="hero">
+  <div class="container">
+    <h1>Tributação descomplicada.<br>Decisões claras.</h1>
+    <p>Explicamos o impacto tributário da sua operação de forma direta, prática e sem juridiquês.</p>
+    <a href="#contato" class="btn-primary">Agendar uma conversa</a>
+  </div>
+</section>
+
 <section class="section">
   <div class="container narrow">
-    <h2>
-      Você já toma decisões importantes todos os dias.<br/>
-      O problema é tomar decisões sem clareza tributária.
-    </h2>
-
+    <h2>Decidir sem clareza tributária custa caro</h2>
     <p>
-      A maioria dos problemas tributários não nasce de erro ou descuido.
-      Eles surgem quando a informação chega confusa, técnica demais ou tarde demais.
+      Multas, riscos e surpresas geralmente não vêm de erro,
+      mas de informação confusa, técnica demais ou mal explicada.
     </p>
-
-    <p>Quando isso acontece, o gestor:</p>
-
-    <ul>
-      <li>decide sem entender o impacto real</li>
-      <li>posterga decisões importantes</li>
-      <li>ou descobre o problema quando ele já virou custo</li>
-    </ul>
-  </div>
-</section>
-
-<section class="section bg-light">
-  <div class="container">
-    <h2>Tributação só é complexa quando ninguém explica direito.</h2>
-
     <p>
-      Na Elluz, a lógica é simples: se quem decide não entende, o risco aumenta.
-    </p>
-
-    <ul>
-      <li>Traduzimos o impacto tributário na operação</li>
-      <li>Explicamos com clareza, sem jargões</li>
-      <li>Indicamos caminhos práticos de ação</li>
-    </ul>
-
-    <p class="highlight">
-      Não falamos para especialistas. Falamos para quem precisa decidir.
+      A Elluz existe para traduzir a tributação em algo que
+      faça sentido para quem precisa decidir.
     </p>
   </div>
 </section>
 
-<section class="section">
+<section id="solucoes" class="section bg-light">
   <div class="container">
-    <h2>A Elluz é para quem precisa decidir certo.</h2>
+    <h2>Nossas soluções</h2>
 
     <div class="grid-2">
       <div class="card">
-        <h3>É para você se:</h3>
-        <ul>
-          <li>atua como gestor, líder ou responsável por decisões tributárias, financeiras ou operacionais</li>
-          <li>não pode errar por desconhecimento</li>
-          <li>precisa entender rápido para decidir melhor</li>
-        </ul>
+        <h3>Boletim Tributário</h3>
+        <p>Atualizações claras para você não ser pego de surpresa.</p>
       </div>
 
-      <div class="card card-muted">
-        <h3>Não é para você se:</h3>
-        <ul>
-          <li>procura atalhos ou “jeitinhos”</li>
-          <li>quer burlar regras</li>
-          <li>não está disposto a fazer o correto</li>
-        </ul>
+      <div class="card">
+        <h3>Consultoria Tributária</h3>
+        <p>Análises objetivas para decisões pontuais.</p>
+      </div>
+
+      <div class="card">
+        <h3>Projetos Tributários</h3>
+        <p>Estudos aprofundados para operações complexas.</p>
+      </div>
+
+      <div class="card">
+        <h3>Treinamentos & Tech</h3>
+        <p>Capacitação prática para equipes e projetos.</p>
       </div>
     </div>
   </div>
 </section>
 
-<section class="section bg-light">
+<section id="beneficios" class="section">
   <div class="container">
-    <h2>O que muda quando você tem clareza tributária</h2>
+    <h2>O que muda com clareza tributária</h2>
 
     <div class="grid-4">
       <div class="feature">
-        <h4>Clareza para decidir</h4>
-        <p>Você entende o cenário sem precisar interpretar leis ou termos técnicos.</p>
+        <h4>Clareza</h4>
+        <p>Entendimento real do impacto fiscal.</p>
       </div>
-
       <div class="feature">
-        <h4>Prevenção de riscos</h4>
-        <p>Problemas aparecem antes de virar multa ou custo inesperado.</p>
+        <h4>Menos risco</h4>
+        <p>Antecipação de problemas.</p>
       </div>
-
       <div class="feature">
-        <h4>Segurança na operação</h4>
-        <p>Cada decisão considera o contexto real do negócio.</p>
+        <h4>Decisão segura</h4>
+        <p>Escolhas bem embasadas.</p>
       </div>
-
       <div class="feature">
-        <h4>Tranquilidade na gestão</h4>
-        <p>Menos improviso. Mais previsibilidade.</p>
+        <h4>Tranquilidade</h4>
+        <p>Gestão com previsibilidade.</p>
       </div>
     </div>
   </div>
 </section>
 
-<section class="section">
+<section id="time" class="section bg-light">
   <div class="container">
-    <h2>Soluções que descomplicam a tributação no seu dia a dia</h2>
+    <h2>Quem somos</h2>
 
-    <div class="grid-2">
-      <div class="solution">
-        <h3>🟢 Boletim Tributário</h3>
-        <p>Atualização clara para quem não pode ser pego de surpresa.</p>
-        <ul>
-          <li>Filtramos o que importa</li>
-          <li>Explicamos sem juridiquês</li>
-          <li>Indicamos pontos de atenção</li>
-        </ul>
+    <p class="intro">
+      A Elluz é liderada por profissionais com foco em clareza tributária
+      e prática real de gestão — sem complicar.
+    </p>
+
+    <div class="team-grid">
+      <div class="team-card">
+        <img src="ellen.png" alt="Ellen Mayara Santos Silva">
+        <h3>Ellen Mayara Santos Silva</h3>
+        <p>
+          Contadora, Pós-graduada em Direito Tributário e MBA em Gestão Fiscal e
+          Planejamento Tributário. Empreendedora e Cofundadora da Elluz.
+          <br><br>
+          Mais de 22 anos de atuação nas áreas de Energia,
+          Alimentos e Bebidas e Financeiro.
+        </p>
       </div>
 
-      <div class="solution">
-        <h3>🟢 Consultoria Tributária</h3>
-        <p>Para decisões pontuais ou operações específicas.</p>
-        <ul>
-          <li>Análise clara</li>
-          <li>Respostas objetivas</li>
-          <li>Orientação prática</li>
-        </ul>
-      </div>
-
-      <div class="solution">
-        <h3>🟢 Projetos Tributários</h3>
-        <p>Para operações mais complexas.</p>
-        <ul>
-          <li>Estudo aprofundado</li>
-          <li>Avaliação de riscos</li>
-          <li>Direcionamento estratégico</li>
-        </ul>
-      </div>
-
-      <div class="solution">
-        <h3>🟢 Treinamentos & Tech</h3>
-        <p>Capacitação prática para times e projetos tecnológicos.</p>
-        <ul>
-          <li>Linguagem acessível</li>
-          <li>Foco em aplicação</li>
-          <li>Integração com a operação</li>
-        </ul>
+      <div class="team-card">
+        <img src="jessica.png" alt="Jéssica de Oliveira Almeida">
+        <h3>Jéssica de Oliveira Almeida</h3>
+        <p>
+          Contadora, Pós-graduada em Direito Tributário e Especialista em
+          Tributação de Energia. Empreendedora e Cofundadora da Elluz.
+          <br><br>
+          Mais de 12 anos de atuação nas áreas de Energia,
+          Alimentos e Bebidas e Financeiro.
+        </p>
       </div>
     </div>
   </div>
 </section>
 
-<section class="section bg-light">
+<section id="contato" class="section">
   <div class="container narrow">
-    <h2>Como trabalhamos</h2>
+    <h2>Vamos conversar?</h2>
 
-    <ol class="steps">
-      <li>Entendemos o contexto da sua operação</li>
-      <li>Descomplicamos o cenário tributário</li>
-      <li>Apontamos riscos e caminhos</li>
-      <li>Você decide com clareza</li>
-    </ol>
-
-    <p class="highlight">Simples. Direto. Aplicável.</p>
-  </div>
-</section>
-
-<section class="section">
-  <div class="container narrow">
-    <h2>Quem descomplica a tributação com você</h2>
-
-    <p>
-      A Elluz é formada por profissionais com experiência prática, visão de operação
-      e compromisso com clareza.
-    </p>
-
-    <p class="highlight">
-      Não falamos difícil para parecer inteligentes. Falamos claro para sermos úteis.
-    </p>
-
-    <p class="muted">
-      Ellen Mayara · Jéssica · Eliel
-    </p>
-  </div>
-</section>
-
-<section class="cta-final" id="contato">
-  <div class="container narrow">
-    <h2>Se tributação impacta suas decisões, clareza não é opcional.</h2>
-
-    <p>
-      Cada operação é diferente. Cada decisão tem contexto.
-      Se você precisa entender antes de decidir, a Elluz pode ajudar.
-    </p>
-
-    <a href="#" class="btn-primary">Agendar uma conversa estratégica</a>
+    <form class="form-contato">
+      <input type="text" placeholder="Seu nome" required>
+      <input type="email" placeholder="Seu e-mail" required>
+      <textarea placeholder="Como podemos ajudar?" required></textarea>
+      <button type="submit" class="btn-primary">Enviar</button>
+    </form>
   </div>
 </section>
 
 <footer class="footer">
-  <p>© 2026 Elluz Consultoria Tributária. Clareza antes da decisão.</p>
+  <p>© 2026 Elluz Consultoria Tributária · Clareza antes da decisão</p>
 </footer>
 
 </body>
